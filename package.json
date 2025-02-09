@@ -26,7 +26,11 @@
     "vite": "^6.0.0"
   },
   "dependencies": {
+    "@threlte/core": "^8.0.1",
+    "@threlte/extras": "^9.0.1",
     "@types/node": "^22.13.1",
+    "@types/three": "^0.173.0",
+    "three": "^0.173.0",
     "url": "^0.11.4"
   }
 }

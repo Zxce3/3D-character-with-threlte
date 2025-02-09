@@ -1,38 +1,72 @@
-# sv
+# 3D Character Animation with Threlte
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+A real-time 3D character animation system built with Svelte, Threlte, and Three.js.
 
-## Creating a project
+## Features
 
-If you're seeing this, you've probably already done this step. Congrats!
+- Real-time character animation with smooth transitions
+- Day/night cycle with dynamic lighting
+- Web Worker-based animation processing
+- Physically-based rendering with shadows and reflections
+- Interactive animation controls
+- Support for various character actions:
+  - Locomotion: idle, walk, run, sneak
+  - Emotions: agree, headshake, sad pose
 
-```bash
-# create a new project in the current directory
-npx sv create
+## Tech Stack
 
-# create a new project in my-app
-npx sv create my-app
-```
+- [Svelte](https://svelte.dev) - Frontend framework
+- [Threlte](https://threlte.xyz) - 3D rendering framework for Svelte
+- [Three.js](https://threejs.org) - 3D graphics library
+- [Web Workers API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API) - Background processing
+- [Tweakpane](https://cocopon.github.io/tweakpane/) - Debug UI
 
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
+## Getting Started
 
 ```bash
-npm run build
+# Install dependencies
+bun install
+
+# Start development server
+bun run dev
+
+# Build for production
+bun run build
 ```
 
-You can preview the production build with `npm run preview`.
+## Project Structure
 
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+```
+src/
+├── lib/
+│   ├── components/
+│   │   ├── Character.svelte    # Main character component
+│   │   ├── Ground.svelte       # Ground plane with reflections
+│   │   ├── Scene.svelte        # Main scene setup
+│   │   └── World.svelte        # Environment and lighting
+│   ├── workers/
+│   │   └── worker.ts           # Animation computation worker
+│   └── types.ts                # Types Definition
+└── routes/
+    └── +page.svelte           # Main page with controls
+```
+
+## Animation System
+
+The project uses a Web Worker to handle heavy animation computations, enabling smooth transitions between different character states. Animations are loaded from a GLTF model and include:
+
+- Basic locomotion (walk, run)
+- Emotional expressions (agree, sad)
+- Pose transitions
+
+## Environment
+
+Features a dynamic environment system that changes based on time of day:
+- Dynamic sky parameters
+- Adaptive lighting
+- HDR environment mapping
+- Physically-based shadows and reflections
+
+## License
+
+MIT
